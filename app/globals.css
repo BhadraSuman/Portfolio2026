@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: #faf9f7;
+    --text: #1a1a1a;
+    --accent: #e85a3b;
+    --surface-card: #ffffff;
+    --surface-secondary: #f3f2ef;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+.font-serif-title {
+  font-family: 'Instrument Serif', Georgia, serif;
+}
+
+.font-mono-tag {
+  font-family: 'Space Mono', monospace;
+}
+
+/* Custom interactive grid pattern */
+.bg-grid-dots {
+  background-size: 28px 28px;
+  background-image: radial-gradient(circle, rgba(26, 26, 26, 0.08) 1px, transparent 1px);
+}
+
+/* Custom selection */
+::selection {
+  background: rgba(232, 90, 59, 0.2);
+  color: #e85a3b;
+}
+
+/* Hide cursor when magnetic cursor is enabled */
+body.custom-cursor-active, body.custom-cursor-active * {
+  cursor: none !important;
+}
+
+/* Glass panel */
+.glass-dock {
+  background: rgba(250, 249, 247, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
