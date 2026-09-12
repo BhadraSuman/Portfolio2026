@@ -2,7 +2,7 @@
 
 import React, { useRef } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import { Briefcase, User, Wrench, Mail, Send, Github } from 'lucide-react';
+import { Briefcase, User, Wrench, Mail, Send, Github, Activity } from 'lucide-react';
 
 interface DockItem {
   label: string;
@@ -13,11 +13,11 @@ interface DockItem {
 
 const dockItems: DockItem[] = [
   { label: 'Work', href: '#projects', icon: Briefcase },
-  { label: 'About', href: '#about', icon: User },
-  { label: 'Services', href: '#services', icon: Wrench },
+  { label: 'Activity', href: '#github', icon: Activity },
+  { label: 'Experience', href: '#experience', icon: User },
+  { label: 'Skills', href: '#skills', icon: Wrench },
   { label: 'Contact', href: '#contact', icon: Mail },
-  { label: 'Telegram', href: 'https://t.me', icon: Send, isExternal: true },
-  { label: 'GitHub', href: 'https://github.com', icon: Github, isExternal: true },
+  { label: 'GitHub', href: 'https://github.com/BhadraSuman', icon: Github, isExternal: true },
 ];
 
 export const FloatingDock: React.FC = () => {

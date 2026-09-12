@@ -6,6 +6,7 @@ import { MarqueeBanner } from '@/components/MarqueeBanner';
 import { ExperienceSection } from '@/components/ExperienceSection';
 import { SkillsSection } from '@/components/SkillsSection';
 import { ProjectsSection } from '@/components/ProjectsSection';
+import { GitHubContributions } from '@/components/GitHubContributions';
 import { ContactSection } from '@/components/ContactSection';
 import { Footer } from '@/components/Footer';
 import { ArrowDown, Terminal, Cloud, Cpu } from 'lucide-react';
@@ -73,6 +74,9 @@ export default function HomePage() {
 
       {/* Featured Projects Showcase (Quickshelf.in, Reverse Tunnel, AI Interview Agent, Kaprilux) */}
       <ProjectsSection />
+
+      {/* Open Source & GitHub Activity Calendar */}
+      <GitHubContributions />
 
       {/* Skills & Technical Expertise */}
       <SkillsSection />
