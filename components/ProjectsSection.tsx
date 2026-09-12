@@ -45,6 +45,7 @@ const projects: Project[] = [
     ],
     tags: ['Go (Golang)', 'Next.js 15', 'TypeScript', 'MongoDB', 'WebSockets', 'MCP JSON-RPC', 'Docker', 'GCP', 'Cloudflare'],
     gradient: 'from-cyan-500 via-[#e85a3b] to-violet-600',
+    demoUrl: 'https://dashboard.quickshelf.online/',
     githubUrl: 'https://github.com/bhadrasuman/reverse-tunnel',
   },
   {
