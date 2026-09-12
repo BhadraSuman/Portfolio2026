@@ -51,3 +51,23 @@ body.custom-cursor-active, body.custom-cursor-active * {
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(0, 0, 0, 0.08);
 }
+
+/* Infinite Marquee Animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 65s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}

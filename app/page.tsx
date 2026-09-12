@@ -14,12 +14,27 @@ import { ArrowDown, Terminal, Cloud, Cpu } from 'lucide-react';
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-[#faf9f7] text-[#1a1a1a] relative selection:bg-[#e85a3b]/20 selection:text-[#e85a3b]">
-      {/* Floating Bottom Mac-Style Dock Navigation */}
-      <FloatingDock />
+      {/* Top Header Bar */}
+      <header className="w-full py-4 px-4 sm:px-6 max-w-6xl mx-auto flex items-center justify-between text-xs font-mono-tag border-b border-black/[0.06]">
+        <div className="flex items-center gap-2 font-bold text-[#1a1a1a]">
+          <span className="w-2 h-2 rounded-full bg-[#22c55e] animate-pulse" />
+          <span>SUMAN BHADRA</span>
+          <span className="text-[#6b7280] font-normal hidden sm:inline">• Available for Opportunities</span>
+        </div>
+        <div className="flex items-center gap-4 text-[#6b7280]">
+          <span className="hidden md:inline">📍 India</span>
+          <a
+            href="#contact"
+            className="px-3 py-1 bg-[#1a1a1a] text-white rounded-lg font-bold hover:bg-[#e85a3b] transition-colors"
+          >
+            GET IN TOUCH
+          </a>
+        </div>
+      </header>
 
       {/* Hero Section */}
-      <section id="hero" className="pt-28 sm:pt-36 pb-20 px-4 sm:px-6 max-w-6xl mx-auto flex flex-col items-center text-center relative">
-        <div className="absolute top-20 left-1/2 -translate-x-1/2 w-96 h-96 bg-[#e85a3b]/10 rounded-full blur-3xl pointer-events-none -z-10" />
+      <section id="hero" className="pt-12 sm:pt-20 pb-20 px-4 sm:px-6 max-w-6xl mx-auto flex flex-col items-center text-center relative">
+        <div className="absolute top-10 left-1/2 -translate-x-1/2 w-96 h-96 bg-[#e85a3b]/10 rounded-full blur-3xl pointer-events-none -z-10" />
 
         {/* Hero Tag Pill */}
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-black/[0.08] shadow-sm text-xs font-mono-tag font-bold text-[#1a1a1a] mb-8">

@@ -12,7 +12,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="light scroll-smooth">
+    <html lang="en" className="light scroll-smooth bg-[#faf9f7]">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -21,7 +21,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="bg-[#faf9f7] text-[#1a1a1a] antialiased selection:bg-[#e85a3b]/20 selection:text-[#e85a3b]">
+      <body className="bg-[#faf9f7] text-[#1a1a1a] antialiased selection:bg-[#e85a3b]/20 selection:text-[#e85a3b] min-h-screen">
         {children}
       </body>
     </html>
