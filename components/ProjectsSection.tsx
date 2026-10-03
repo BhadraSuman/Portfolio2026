@@ -36,6 +36,22 @@ const projects: Project[] = [
   },
   {
     id: 2,
+    title: 'UtsavPatra — Digital Wedding Invitations',
+    category: 'Culturally-Aware SaaS & Next.js 15',
+    description: 'Digital wedding invitation SaaS for Indian couples featuring 14 distinct regional templates (1920s Gazette, Bollywood, Vivah Express train ticket, Madhubani folk art), personalized guest links, and live tryout customizer.',
+    highlights: [
+      '📜 14 Regional Culturally-Aware Templates: Built 14 distinct regional themes (1920s Gazette newspaper, Bollywood movie poster, Vivah Express train ticket, Madhubani folk art, Phulkari embroidery, etc.).',
+      '💌 Personalized Guest Experience & Shagun: Dynamic guest links greeting guests by name, native script + English toggle, and integrated UPI Digital Shagun gifting.',
+      '🎨 Live Tryout Customizer & Host Dashboard: Real-time interactive preview studio for couples to customize themes and manage all 12 ceremony events (Haldi → Reception).',
+      '🎵 Web Audio Soundscapes & High-Res Print Mode: Browser-synthesized authentic folk audio without copyright issues, and print mode for 1920s Gazette broadsheet vintage newspapers.',
+      '⚡ High-Performance Architecture: Next.js 15 App Router, React 19, and Framer Motion optimized for mobile Web Vitals with zero compromise on culture.',
+    ],
+    tags: ['Next.js 15', 'React 19', 'TypeScript', 'Tailwind CSS', 'Web Audio API', 'UPI Integration', 'Framer Motion', 'Vercel'],
+    gradient: 'from-amber-600 via-rose-600 to-[#e85a3b]',
+    demoUrl: 'https://utsavpatra.vercel.app/',
+  },
+  {
+    id: 3,
     title: 'Quickshelf — Retail Tech Platform',
     category: 'Next.js 16 & Supabase Retail SaaS',
     description: 'Integrated retail software & ESL hardware platform (Billing POS, Inventory Management, Electronic Shelf Labels, Loyalty & CRM Analytics) for supermarkets and retail chains.',
@@ -49,7 +65,7 @@ const projects: Project[] = [
     demoUrl: 'https://quickshelf.in',
   },
   {
-    id: 3,
+    id: 4,
     title: 'Reverse Tunnel (Ngrok Alternative)',
     category: 'Golang & High-Concurrency Systems',
     description: 'Self-hosted, high-performance reverse proxy and tunneling platform in Go and Next.js 15 that securely exposes local development servers to public HTTPS subdomains.',
@@ -66,7 +82,7 @@ const projects: Project[] = [
     githubUrl: 'https://github.com/bhadrasuman/reverse-tunnel',
   },
   {
-    id: 4,
+    id: 5,
     title: 'AI Interview Agent',
     category: 'AI & Real-Time WebRTC',
     description: 'Real-time AI-driven interview platform with low-latency WebRTC streaming, AI candidate scoring, and automated credit payments.',
@@ -79,7 +95,7 @@ const projects: Project[] = [
     gradient: 'from-amber-500 via-[#e85a3b] to-rose-600',
   },
   {
-    id: 5,
+    id: 6,
     title: 'Boat Rental & Booking Marketplace',
     category: 'Full-Stack MERN Marketplace',
     description: 'Live production boat rental & booking platform serving real marketplace users with real-time location mapping and affiliate tracking.',
