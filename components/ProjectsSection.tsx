@@ -19,6 +19,23 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
+    title: 'FrameFlow — Photo Proofing & Studio Portal',
+    category: 'Full-Stack Node.js, AWS & System Design',
+    description: 'End-to-end photo selection portal featuring luxury client proofing galleries and studio management dashboard for wedding and event photographers.',
+    highlights: [
+      '⚡ Direct-to-S3 Uploads: Browser streams photos straight to AWS S3 via presigned URLs, avoiding RAM exhaustion during 2,000+ photo batch uploads.',
+      '🖼️ Background Image Crunching: Decoupled Sharp + Redis/BullMQ worker auto-generates responsive WebP thumbnails and previews in milliseconds.',
+      '💸 Zero-Lockin Storage: Custom storage driver running on AWS S3, easily swappable to Cloudflare R2 ($0 egress bandwidth fees) with a single .env change.',
+      '🔒 Secure Client Proofing: 4-digit PIN-protected galleries, mobile-friendly hearting/selection tracking, and 1-click ZIP exports.',
+      '🚢 Production-Ready Infra: Multi-container Docker Compose on AWS EC2, automated SSL via Caddy (HTTP/3), and GitHub Actions CI/CD pipeline.',
+    ],
+    tags: ['React 19', 'TypeScript', 'Node.js', 'Express', 'Prisma', 'PostgreSQL', 'Redis & BullMQ', 'Sharp', 'AWS S3 & EC2', 'Docker', 'Caddy HTTP/3'],
+    gradient: 'from-purple-600 via-[#e85a3b] to-indigo-700',
+    demoUrl: 'https://frameflow.quickshelf.online',
+    githubUrl: 'https://github.com/BhadraSuman/FrameFlow',
+  },
+  {
+    id: 2,
     title: 'Quickshelf — Retail Tech Platform',
     category: 'Next.js 16 & Supabase Retail SaaS',
     description: 'Integrated retail software & ESL hardware platform (Billing POS, Inventory Management, Electronic Shelf Labels, Loyalty & CRM Analytics) for supermarkets and retail chains.',
@@ -32,7 +49,7 @@ const projects: Project[] = [
     demoUrl: 'https://quickshelf.in',
   },
   {
-    id: 2,
+    id: 3,
     title: 'Reverse Tunnel (Ngrok Alternative)',
     category: 'Golang & High-Concurrency Systems',
     description: 'Self-hosted, high-performance reverse proxy and tunneling platform in Go and Next.js 15 that securely exposes local development servers to public HTTPS subdomains.',
@@ -49,7 +66,7 @@ const projects: Project[] = [
     githubUrl: 'https://github.com/bhadrasuman/reverse-tunnel',
   },
   {
-    id: 3,
+    id: 4,
     title: 'AI Interview Agent',
     category: 'AI & Real-Time WebRTC',
     description: 'Real-time AI-driven interview platform with low-latency WebRTC streaming, AI candidate scoring, and automated credit payments.',
@@ -62,7 +79,7 @@ const projects: Project[] = [
     gradient: 'from-amber-500 via-[#e85a3b] to-rose-600',
   },
   {
-    id: 4,
+    id: 5,
     title: 'Boat Rental & Booking Marketplace',
     category: 'Full-Stack MERN Marketplace',
     description: 'Live production boat rental & booking platform serving real marketplace users with real-time location mapping and affiliate tracking.',

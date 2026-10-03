@@ -9,32 +9,32 @@ export const SkillsSection: React.FC = () => {
     {
       title: 'Backend & High-Concurrency',
       icon: Cpu,
-      skills: ['Go (Golang)', 'Go Concurrency & Channels', 'Node.js', 'Express.js', 'REST API Design', 'Socket.IO', 'WebSockets', 'JWT Authentication', 'Microservices'],
+      skills: ['Go (Golang)', 'Go Concurrency & Channels', 'Node.js', 'Express.js', 'Redis & BullMQ', 'REST API Design', 'Socket.IO', 'WebSockets', 'Sharp Image Processing', 'Microservices'],
     },
     {
       title: 'Cloud Infrastructure & DevOps',
       icon: Cloud,
-      skills: ['Microsoft Azure', 'Azure Monitor', 'Log Analytics / KQL', 'Google Cloud Platform (GCP)', 'Docker', 'Nginx', 'Linux', 'CI/CD', 'DNS Management'],
+      skills: ['AWS S3 & EC2', 'Microsoft Azure', 'Google Cloud (GCP)', 'Docker', 'Caddy HTTP/3', 'Nginx', 'Linux', 'CI/CD Pipelines', 'DNS Management'],
     },
     {
       title: 'Databases & Performance',
       icon: Database,
-      skills: ['MongoDB', 'MySQL', 'Redis', 'Mongoose', 'Query Optimisation & Indexing'],
+      skills: ['PostgreSQL', 'Prisma ORM', 'MongoDB', 'Redis', 'MySQL', 'Mongoose', 'Query Optimisation & Indexing'],
     },
     {
       title: 'Frontend & UI Engineering',
       icon: Code2,
-      skills: ['React.js', 'Next.js 15 App Router', 'TypeScript', 'Tailwind CSS', 'Responsive UI Development'],
+      skills: ['React 19', 'Next.js 16 App Router', 'TypeScript', 'Tailwind CSS', 'Responsive UI Development'],
     },
     {
       title: 'Integrations & Tools',
       icon: Terminal,
-      skills: ['Stripe Gateway', 'Razorpay', 'LiveKit WebRTC', 'Google Maps API', 'Tracknow Affiliate', 'Postman', 'Git & GitHub', 'Cobra CLI'],
+      skills: ['AWS Presigned S3 URLs', 'Model Context Protocol (MCP)', 'Stripe Gateway', 'Razorpay', 'LiveKit WebRTC', 'Google Maps API', 'Postman', 'Git & GitHub'],
     },
     {
       title: 'Engineering Practices',
       icon: ShieldCheck,
-      skills: ['Incident Response', 'Root Cause Analysis (RCA)', 'SOP & Runbook Documentation', 'Performance Tuning', 'Agile Methodology'],
+      skills: ['System Architecture Design', 'Incident Response', 'Root Cause Analysis (RCA)', 'Runbook Documentation', 'Performance Tuning'],
     },
   ];
 

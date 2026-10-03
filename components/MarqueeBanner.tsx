@@ -5,6 +5,7 @@ import { Sparkles, Cpu, Cloud, Terminal, ShieldCheck, Zap } from 'lucide-react';
 
 export const MarqueeBanner: React.FC = () => {
   const items = [
+    { text: 'FRAMEFLOW (PHOTO PROOFING PORTAL)', tag: 'STUDIO SAAS', isHighlight: true, icon: Zap },
     { text: 'QUICKSHELF.IN (RETAIL POS & IOT)', tag: 'FEATURED SAAS', isHighlight: true, icon: Zap },
     { text: 'GO 1.26 & HIGH CONCURRENCY', tag: 'CORE TECH', isHighlight: false, icon: Cpu },
     { text: 'FULL STACK & CLOUD ARCHITECTURE', tag: 'SPECIALIZATION', isHighlight: false, icon: Cloud },
