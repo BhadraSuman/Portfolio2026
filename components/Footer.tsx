@@ -11,7 +11,7 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="border-t-2 border-[#e85a3b]/20 bg-[#faf9f7] pt-12 pb-24 text-[#1a1a1a]">
+    <footer className="border-t-2 border-[#e85a3b]/20 bg-[#faf9f7] pt-16 pb-40 sm:pb-44 text-[#1a1a1a] relative z-10">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center mb-10 overflow-hidden">
         <h2 className="font-serif-title text-5xl sm:text-7xl md:text-8xl text-[#1a1a1a] tracking-tight uppercase select-none opacity-95">
           SUMAN BHADRA
