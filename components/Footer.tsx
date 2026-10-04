@@ -20,13 +20,34 @@ export const Footer: React.FC = () => {
 
       <div className="border-t border-black/[0.04] pt-6">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <span className="font-mono-tag text-xs text-[#6b7280]">
-            © 2026 · Full Stack Developer & Cloud Engineer · Kolkata, India
-          </span>
+          <div className="flex flex-col sm:flex-row items-center gap-3">
+            <span className="font-mono-tag text-xs text-[#6b7280]">
+              © 2026 · Full Stack Developer & Cloud Engineer · Kolkata, India
+            </span>
+            <div className="flex items-center gap-3 text-xs font-mono-tag font-bold text-[#1a1a1a]">
+              <a
+                href="https://github.com/BhadraSuman"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[#e85a3b] transition"
+              >
+                GitHub ↗
+              </a>
+              <span>·</span>
+              <a
+                href="https://www.linkedin.com/in/bhadrasuman"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[#e85a3b] transition"
+              >
+                LinkedIn ↗
+              </a>
+            </div>
+          </div>
 
           <button
             onClick={scrollToTop}
-            className="flex items-center gap-1.5 text-xs font-mono-tag font-bold text-[#6b7280] hover:text-[#e85a3b] transition cursor-pointer"
+            className="flex items-center gap-1.5 text-xs font-mono-tag font-bold text-[#6b7280] hover:text-[#e85a3b] transition cursor-pointer shrink-0"
           >
             <ArrowUp className="w-3.5 h-3.5" />
             <span>Back to Top</span>

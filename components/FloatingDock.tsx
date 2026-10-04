@@ -2,7 +2,7 @@
 
 import React, { useRef } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import { Briefcase, User, Wrench, Mail, Send, Github, Activity } from 'lucide-react';
+import { Briefcase, User, Wrench, Mail, Send, Github, Activity, Linkedin } from 'lucide-react';
 
 interface DockItem {
   label: string;
@@ -18,6 +18,7 @@ const dockItems: DockItem[] = [
   { label: 'Skills', href: '#skills', icon: Wrench },
   { label: 'Contact', href: '#contact', icon: Mail },
   { label: 'GitHub', href: 'https://github.com/BhadraSuman', icon: Github, isExternal: true },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/bhadrasuman', icon: Linkedin, isExternal: true },
 ];
 
 export const FloatingDock: React.FC = () => {
@@ -32,7 +33,7 @@ export const FloatingDock: React.FC = () => {
       >
         {dockItems.map((item, i) => (
           <React.Fragment key={item.label}>
-            {i === 4 && <div className="w-px h-5 bg-black/10 mx-1" />}
+            {i === 5 && <div className="w-px h-5 bg-black/10 mx-1" />}
             <DockIcon mouseX={mouseX} item={item} />
           </React.Fragment>
         ))}
