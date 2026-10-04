@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, ArrowUpRight, CheckCircle2 } from 'lucide-react';
+import { ExternalLink, ArrowUpRight, CheckCircle2, X } from 'lucide-react';
 
 interface Project {
   id: number;
@@ -196,9 +196,18 @@ export const ProjectsSection: React.FC = () => {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
             onClick={(e) => e.stopPropagation()}
-            className="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl border border-black/[0.08] relative overflow-hidden"
+            className="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl border border-black/[0.08] relative overflow-y-auto max-h-[90vh]"
           >
-            <div className={`h-40 -mx-6 -mt-6 sm:-mx-8 sm:-mt-8 mb-6 bg-gradient-to-r ${activeProject.gradient} p-6 flex items-end justify-between`}>
+            {/* Mobile & Desktop Top-Right Close Button */}
+            <button
+              onClick={() => setActiveProject(null)}
+              className="absolute top-4 right-4 z-30 w-9 h-9 rounded-full bg-black/40 hover:bg-black/70 text-white flex items-center justify-center backdrop-blur-md border border-white/20 shadow-lg transition-transform active:scale-95 cursor-pointer"
+              aria-label="Close popup"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            <div className={`h-40 -mx-6 -mt-6 sm:-mx-8 sm:-mt-8 mb-6 bg-gradient-to-r ${activeProject.gradient} p-6 flex items-end justify-between relative`}>
               <h3 className="font-serif-title text-3xl text-white">{activeProject.title}</h3>
               <span className="bg-white/90 text-[#1a1a1a] text-xs font-mono-tag font-bold px-3 py-1 rounded-full">
                 {activeProject.category}
