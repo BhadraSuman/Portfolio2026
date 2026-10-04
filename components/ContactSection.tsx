@@ -62,20 +62,20 @@ export const ContactSection: React.FC = () => {
 
           {/* Contact Details Cards */}
           <div className="w-full flex flex-col gap-3 mb-8">
-            <div className="bg-white p-4 rounded-2xl border border-black/[0.08] shadow-sm flex items-center justify-between gap-4">
+            <div className="bg-white p-4 rounded-2xl border border-black/[0.08] shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div className="flex items-center gap-3 overflow-hidden">
-                <div className="p-3 rounded-xl bg-[#f3f2ef] text-[#e85a3b]">
+                <div className="p-3 rounded-xl bg-[#f3f2ef] text-[#e85a3b] shrink-0">
                   <Mail className="w-5 h-5" />
                 </div>
                 <div className="flex flex-col truncate">
                   <span className="text-[10px] uppercase font-mono-tag tracking-wider font-bold text-[#6b7280]">Email</span>
-                  <span className="text-sm font-mono font-bold text-[#1a1a1a] truncate">{email}</span>
+                  <span className="text-xs sm:text-sm font-mono font-bold text-[#1a1a1a] truncate">{email}</span>
                 </div>
               </div>
 
               <button
                 onClick={handleCopyEmail}
-                className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-[#1a1a1a] hover:bg-[#e85a3b] text-white text-xs font-semibold shadow-md transition-all duration-200 shrink-0 cursor-pointer"
+                className="flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-[#1a1a1a] hover:bg-[#e85a3b] text-white text-xs font-semibold shadow-md transition-all duration-200 shrink-0 cursor-pointer w-full sm:w-auto"
               >
                 {copied ? (
                   <>

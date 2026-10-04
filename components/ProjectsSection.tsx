@@ -241,10 +241,10 @@ export const ProjectsSection: React.FC = () => {
               </div>
             </div>
 
-            <div className="flex items-center justify-end gap-3 pt-4 border-t border-black/[0.04]">
+            <div className="flex flex-col-reverse sm:flex-row sm:items-center sm:justify-end gap-2.5 pt-4 border-t border-black/[0.04]">
               <button
                 onClick={() => setActiveProject(null)}
-                className="px-4 py-2 text-xs font-semibold text-[#6b7280] hover:bg-[#f3f2ef] rounded-xl transition"
+                className="w-full sm:w-auto px-4 py-2.5 text-xs font-semibold text-[#6b7280] hover:bg-[#f3f2ef] rounded-xl transition text-center"
               >
                 Close Preview
               </button>
@@ -253,7 +253,7 @@ export const ProjectsSection: React.FC = () => {
                   href={activeProject.githubUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center gap-1.5 px-4 py-2 bg-[#1a1a1a] text-white text-xs font-semibold rounded-xl hover:bg-[#e85a3b] shadow-md transition"
+                  className="w-full sm:w-auto flex items-center justify-center gap-1.5 px-4 py-2.5 bg-[#1a1a1a] text-white text-xs font-semibold rounded-xl hover:bg-[#e85a3b] shadow-md transition"
                 >
                   <span>GitHub Repository</span>
                   <ExternalLink className="w-3.5 h-3.5" />
@@ -264,7 +264,7 @@ export const ProjectsSection: React.FC = () => {
                   href={activeProject.demoUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center gap-1.5 px-4 py-2 bg-[#e85a3b] text-white text-xs font-semibold rounded-xl hover:bg-[#d4482a] shadow-md transition"
+                  className="w-full sm:w-auto flex items-center justify-center gap-1.5 px-4 py-2.5 bg-[#e85a3b] text-white text-xs font-semibold rounded-xl hover:bg-[#d4482a] shadow-md transition"
                 >
                   <span>Visit Live Website</span>
                   <ExternalLink className="w-3.5 h-3.5" />

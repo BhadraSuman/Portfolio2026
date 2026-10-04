@@ -48,7 +48,7 @@ export default function HomePage() {
         </div>
 
         {/* PROMINENT EDITORIAL NAME HEADLINE WITH GSAP CHARACTER STAGGER */}
-        <h1 className="font-serif-title text-6xl sm:text-8xl md:text-9xl text-[#1a1a1a] tracking-tight max-w-5xl leading-[0.9] mb-4 uppercase flex flex-wrap justify-center gap-x-4 sm:gap-x-8 overflow-hidden py-1">
+        <h1 className="font-serif-title text-5xl sm:text-8xl md:text-9xl text-[#1a1a1a] tracking-tight max-w-5xl leading-[0.9] mb-4 uppercase flex flex-wrap justify-center gap-x-4 sm:gap-x-8 overflow-hidden py-1">
           <span className="inline-flex overflow-hidden py-1">
             {firstName.map((char, index) => (
               <span key={`first-${index}`} className="hero-char inline-block will-change-transform">
