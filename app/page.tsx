@@ -1,6 +1,7 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
+import gsap from 'gsap';
 import { FloatingDock } from '@/components/FloatingDock';
 import { MarqueeBanner } from '@/components/MarqueeBanner';
 import { ExperienceSection } from '@/components/ExperienceSection';
@@ -12,6 +13,25 @@ import { Footer } from '@/components/Footer';
 import { ArrowDown, Terminal, Cloud, Cpu } from 'lucide-react';
 
 export default function HomePage() {
+  const firstName = "SUMAN".split("");
+  const lastName = "BHADRA".split("");
+
+  useEffect(() => {
+    gsap.fromTo(
+      '.hero-char',
+      { y: '110%', opacity: 0, filter: 'blur(8px)' },
+      {
+        y: '0%',
+        opacity: 1,
+        filter: 'blur(0px)',
+        duration: 1.1,
+        stagger: 0.045,
+        ease: 'power4.out',
+        delay: 0.15,
+      }
+    );
+  }, []);
+
   return (
     <div className="min-h-screen bg-[#faf9f7] text-[#1a1a1a] relative selection:bg-[#e85a3b]/20 selection:text-[#e85a3b]">
       {/* Top Header Bar */}
@@ -42,9 +62,22 @@ export default function HomePage() {
           <span>FULL STACK DEVELOPER & CLOUD ENGINEER</span>
         </div>
 
-        {/* PROMINENT EDITORIAL NAME HEADLINE */}
-        <h1 className="font-serif-title text-6xl sm:text-8xl md:text-9xl text-[#1a1a1a] tracking-tight max-w-5xl leading-[0.9] mb-4 uppercase">
-          SUMAN BHADRA
+        {/* PROMINENT EDITORIAL NAME HEADLINE WITH GSAP CHARACTER STAGGER */}
+        <h1 className="font-serif-title text-6xl sm:text-8xl md:text-9xl text-[#1a1a1a] tracking-tight max-w-5xl leading-[0.9] mb-4 uppercase flex flex-wrap justify-center gap-x-4 sm:gap-x-8 overflow-hidden py-1">
+          <span className="inline-flex overflow-hidden py-1">
+            {firstName.map((char, index) => (
+              <span key={`first-${index}`} className="hero-char inline-block will-change-transform">
+                {char}
+              </span>
+            ))}
+          </span>
+          <span className="inline-flex overflow-hidden py-1">
+            {lastName.map((char, index) => (
+              <span key={`last-${index}`} className="hero-char inline-block will-change-transform">
+                {char}
+              </span>
+            ))}
+          </span>
         </h1>
 
         <p className="font-serif-title text-2xl sm:text-4xl text-[#e85a3b] italic mb-8 max-w-3xl">

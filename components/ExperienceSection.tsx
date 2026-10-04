@@ -1,8 +1,10 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Briefcase, Calendar, MapPin, CheckCircle2 } from 'lucide-react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 interface Experience {
   company: string;
@@ -52,6 +54,21 @@ const experiences: Experience[] = [
 ];
 
 export const ExperienceSection: React.FC = () => {
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.to('.timeline-progress-fill', {
+      height: '100%',
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '#experience-timeline-container',
+        start: 'top 70%',
+        end: 'bottom 80%',
+        scrub: 0.5,
+      },
+    });
+  }, []);
+
   return (
     <section id="experience" className="py-24 px-4 sm:px-6 max-w-6xl mx-auto border-t border-black/[0.06]">
       <div className="flex flex-col items-center text-center mb-16">
@@ -66,7 +83,11 @@ export const ExperienceSection: React.FC = () => {
         </p>
       </div>
 
-      <div className="flex flex-col gap-8 max-w-4xl mx-auto">
+      <div id="experience-timeline-container" className="relative flex flex-col gap-8 max-w-4xl mx-auto pl-4 sm:pl-8">
+        {/* GSAP Scroll-Triggered Progress Vertical Bar */}
+        <div className="absolute left-0 sm:left-2 top-4 bottom-4 w-1 bg-black/[0.06] rounded-full overflow-hidden">
+          <div className="timeline-progress-fill w-full h-0 bg-gradient-to-b from-[#e85a3b] via-amber-500 to-[#1a1a1a] rounded-full" />
+        </div>
         {experiences.map((exp, idx) => (
           <motion.div
             key={idx}
