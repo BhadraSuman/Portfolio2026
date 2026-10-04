@@ -20,7 +20,7 @@ const projects: Project[] = [
   {
     id: 1,
     title: 'FrameFlow — Photo Proofing & Studio Portal',
-    category: 'Full-Stack Node.js, AWS & System Design',
+    category: 'Full-Stack Node.js & AWS',
     description: 'End-to-end photo selection portal featuring luxury client proofing galleries and studio management dashboard for wedding and event photographers.',
     highlights: [
       'Direct-to-S3 Uploads: Browser streams photos straight to AWS S3 via presigned URLs, avoiding RAM exhaustion during 2,000+ photo batch uploads.',
@@ -37,7 +37,7 @@ const projects: Project[] = [
   {
     id: 2,
     title: 'UtsavPatra — Digital Wedding Invitations',
-    category: 'Culturally-Aware SaaS & Next.js 15',
+    category: 'Culturally-Aware Wedding SaaS',
     description: 'Digital wedding invitation SaaS for Indian couples featuring 14 distinct regional templates (1920s Gazette, Bollywood, Vivah Express train ticket, Madhubani folk art), personalized guest links, and live tryout customizer.',
     highlights: [
       '14 Regional Culturally-Aware Templates: Built 14 distinct regional themes (1920s Gazette newspaper, Bollywood movie poster, Vivah Express train ticket, Madhubani folk art, Phulkari embroidery, etc.).',
@@ -139,13 +139,14 @@ export const ProjectsSection: React.FC = () => {
             <div className={`h-52 w-full bg-gradient-to-tr ${project.gradient} p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden`}>
               <div className="absolute inset-0 bg-grid-dots opacity-20 pointer-events-none" />
 
-              <div className="flex justify-between items-start z-10">
-                <span className="px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-[10px] font-mono-tag font-bold text-[#1a1a1a] uppercase tracking-wider shadow-sm">
+              <div className="flex flex-wrap items-center justify-between gap-2 z-10">
+                <span className="px-3 py-1 bg-white/95 backdrop-blur-md rounded-full text-[10px] font-mono-tag font-bold text-[#1a1a1a] uppercase tracking-wider shadow-sm whitespace-nowrap">
                   {project.category}
                 </span>
                 {project.demoUrl && (
-                  <span className="px-2.5 py-1 bg-black/20 text-white text-[11px] font-mono-tag rounded-full">
-                    Live Platform ↗
+                  <span className="px-2.5 py-1 bg-black/30 backdrop-blur-sm text-white text-[10px] font-mono-tag font-bold rounded-full whitespace-nowrap shrink-0 flex items-center gap-1 border border-white/20">
+                    <span>Live Platform</span>
+                    <span className="text-xs">↗</span>
                   </span>
                 )}
               </div>
@@ -207,11 +208,20 @@ export const ProjectsSection: React.FC = () => {
               <X className="w-5 h-5" />
             </button>
 
-            <div className={`h-40 -mx-6 -mt-6 sm:-mx-8 sm:-mt-8 mb-6 bg-gradient-to-r ${activeProject.gradient} p-6 flex items-end justify-between relative`}>
-              <h3 className="font-serif-title text-3xl text-white">{activeProject.title}</h3>
-              <span className="bg-white/90 text-[#1a1a1a] text-xs font-mono-tag font-bold px-3 py-1 rounded-full">
-                {activeProject.category}
-              </span>
+            <div className={`min-h-[140px] -mx-6 -mt-6 sm:-mx-8 sm:-mt-8 mb-6 bg-gradient-to-r ${activeProject.gradient} p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden`}>
+              <div className="absolute inset-0 bg-grid-dots opacity-20 pointer-events-none" />
+
+              <div className="z-10 mb-4">
+                <span className="inline-block px-3 py-1 bg-white/95 backdrop-blur-md text-[#1a1a1a] text-[10px] font-mono-tag font-bold rounded-full uppercase tracking-wider shadow-sm whitespace-nowrap">
+                  {activeProject.category}
+                </span>
+              </div>
+
+              <div className="z-10 pr-12">
+                <h3 className="font-serif-title text-2xl sm:text-4xl text-white tracking-tight drop-shadow-md leading-tight">
+                  {activeProject.title}
+                </h3>
+              </div>
             </div>
 
             <p className="text-[#6b7280] text-xs leading-relaxed mb-4">
