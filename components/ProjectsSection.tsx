@@ -8,6 +8,7 @@ interface Project {
   id: number;
   title: string;
   category: string;
+  type: 'production' | 'lab';
   description: string;
   highlights: string[];
   tags: string[];
@@ -21,6 +22,7 @@ const projects: Project[] = [
     id: 1,
     title: 'FrameFlow — Photo Proofing & Studio Portal',
     category: 'Full-Stack Node.js & AWS',
+    type: 'production',
     description: 'End-to-end photo selection portal featuring luxury client proofing galleries and studio management dashboard for wedding and event photographers.',
     highlights: [
       'Direct-to-S3 Uploads: Browser streams photos straight to AWS S3 via presigned URLs, avoiding RAM exhaustion during 2,000+ photo batch uploads.',
@@ -36,8 +38,39 @@ const projects: Project[] = [
   },
   {
     id: 2,
+    title: 'Quickshelf — Retail Tech Platform',
+    category: 'Next.js 16 & Supabase Retail SaaS',
+    type: 'production',
+    description: 'Integrated retail software & ESL hardware platform (Billing POS, Inventory Management, Electronic Shelf Labels, Loyalty & CRM Analytics) for supermarkets and retail chains.',
+    highlights: [
+      'Built with Next.js 16 App Router, React 19, and Tailwind CSS 4 with custom CSS variable design tokens.',
+      'Implemented Supabase-backed serverless lead capture engine with strict Row Level Security (RLS) policies and rate-limiting triggers.',
+      'Architected digital Electronic Shelf Label (ESL) hardware integration & multi-store retail billing pipelines.',
+    ],
+    tags: ['Next.js 16', 'React 19', 'Tailwind CSS 4', 'Supabase RLS', 'Retail POS', 'ESL Hardware IoT'],
+    gradient: 'from-[#e85a3b] via-amber-500 to-[#1a1a1a]',
+    demoUrl: 'https://quickshelf.in',
+  },
+  {
+    id: 3,
+    title: 'Boat Rental & Booking Marketplace',
+    category: 'Full-Stack MERN Marketplace',
+    type: 'production',
+    description: 'Live production boat rental & booking platform serving real marketplace users with real-time location mapping and affiliate tracking.',
+    highlights: [
+      'Maintained production server infrastructure and delivered 15+ full-stack features on MERN stack.',
+      'Integrated Stripe payment gateway achieving 99%+ transaction success rate.',
+      'Built Socket.IO real-time availability, Google Maps API location search, and Tracknow affiliate tracking.',
+    ],
+    tags: ['MERN Stack', 'TypeScript', 'Socket.IO', 'Google Maps API', 'Stripe', 'Tracknow'],
+    gradient: 'from-blue-600 via-indigo-600 to-purple-600',
+    demoUrl: 'https://kaprilux.com',
+  },
+  {
+    id: 4,
     title: 'UtsavPatra — Digital Wedding Invitations',
     category: 'Culturally-Aware Wedding SaaS',
+    type: 'lab',
     description: 'Digital wedding invitation SaaS for Indian couples featuring 14 distinct regional templates (1920s Gazette, Bollywood, Vivah Express train ticket, Madhubani folk art), personalized guest links, and live tryout customizer.',
     highlights: [
       '14 Regional Culturally-Aware Templates: Built 14 distinct regional themes (1920s Gazette newspaper, Bollywood movie poster, Vivah Express train ticket, Madhubani folk art, Phulkari embroidery, etc.).',
@@ -51,23 +84,10 @@ const projects: Project[] = [
     demoUrl: 'https://utsavpatra.vercel.app/',
   },
   {
-    id: 3,
-    title: 'Quickshelf — Retail Tech Platform',
-    category: 'Next.js 16 & Supabase Retail SaaS',
-    description: 'Integrated retail software & ESL hardware platform (Billing POS, Inventory Management, Electronic Shelf Labels, Loyalty & CRM Analytics) for supermarkets and retail chains.',
-    highlights: [
-      'Built with Next.js 16 App Router, React 19, and Tailwind CSS 4 with custom CSS variable design tokens.',
-      'Implemented Supabase-backed serverless lead capture engine with strict Row Level Security (RLS) policies and rate-limiting triggers.',
-      'Architected digital Electronic Shelf Label (ESL) hardware integration & multi-store retail billing pipelines.',
-    ],
-    tags: ['Next.js 16', 'React 19', 'Tailwind CSS 4', 'Supabase RLS', 'Retail POS', 'ESL Hardware IoT'],
-    gradient: 'from-[#e85a3b] via-amber-500 to-[#1a1a1a]',
-    demoUrl: 'https://quickshelf.in',
-  },
-  {
-    id: 4,
+    id: 5,
     title: 'Reverse Tunnel (Ngrok Alternative)',
     category: 'Golang & High-Concurrency Systems',
+    type: 'lab',
     description: 'Self-hosted, high-performance reverse proxy and tunneling platform in Go and Next.js 15 that securely exposes local development servers to public HTTPS subdomains.',
     highlights: [
       'Built a self-hosted, high-performance reverse proxy and tunneling platform (ngrok alternative) in Go and Next.js 15 that securely exposes local development servers (localhost) to public HTTPS subdomains.',
@@ -82,9 +102,10 @@ const projects: Project[] = [
     githubUrl: 'https://github.com/bhadrasuman/reverse-tunnel',
   },
   {
-    id: 5,
+    id: 6,
     title: 'AI Interview Agent',
     category: 'AI & Real-Time WebRTC',
+    type: 'lab',
     description: 'Real-time AI-driven interview platform with low-latency WebRTC streaming, AI candidate scoring, and automated credit payments.',
     highlights: [
       'Orchestrated real-time AI interviews using LiveKit for low-latency audio/video streaming.',
@@ -94,43 +115,81 @@ const projects: Project[] = [
     tags: ['React.js', 'LiveKit WebRTC', 'Node.js', 'Razorpay', 'AI Pipelines'],
     gradient: 'from-amber-500 via-[#e85a3b] to-rose-600',
   },
-  {
-    id: 6,
-    title: 'Boat Rental & Booking Marketplace',
-    category: 'Full-Stack MERN Marketplace',
-    description: 'Live production boat rental & booking platform serving real marketplace users with real-time location mapping and affiliate tracking.',
-    highlights: [
-      'Maintained production server infrastructure and delivered 15+ full-stack features on MERN stack.',
-      'Integrated Stripe payment gateway achieving 99%+ transaction success rate.',
-      'Built Socket.IO real-time availability, Google Maps API location search, and Tracknow affiliate tracking.',
-    ],
-    tags: ['MERN Stack', 'TypeScript', 'Socket.IO', 'Google Maps API', 'Stripe', 'Tracknow'],
-    gradient: 'from-blue-600 via-indigo-600 to-purple-600',
-    demoUrl: 'https://kaprilux.com',
-  },
 ];
 
 export const ProjectsSection: React.FC = () => {
   const [activeProject, setActiveProject] = useState<Project | null>(null);
+  const [filter, setFilter] = useState<'all' | 'production' | 'lab'>('all');
+
+  const filteredProjects = projects.filter((project) => {
+    if (filter === 'production') return project.type === 'production';
+    if (filter === 'lab') return project.type === 'lab';
+    return true;
+  });
+
+  const productionCount = projects.filter((p) => p.type === 'production').length;
+  const labCount = projects.filter((p) => p.type === 'lab').length;
 
   return (
     <section id="projects" className="py-24 px-4 sm:px-6 max-w-6xl mx-auto border-t border-black/[0.06]">
-      <div className="flex flex-col items-center text-center mb-16">
+      <div className="flex flex-col items-center text-center mb-12">
         <span className="font-mono-tag text-xs font-bold text-[#e85a3b] uppercase tracking-widest mb-3">
-          PRODUCTION PROJECTS
+          CURATED PORTFOLIO
         </span>
         <h2 className="font-serif-title text-4xl sm:text-6xl text-[#1a1a1a] tracking-tight mb-4">
           Featured Engineering Work
         </h2>
-        <p className="text-[#6b7280] text-base max-w-2xl font-normal leading-relaxed">
-          Next.js 16 & Supabase retail platforms, high-concurrency Go reverse proxies, MERN marketplaces, and AI WebRTC systems.
+        <p className="text-[#6b7280] text-base max-w-2xl font-normal leading-relaxed mb-8">
+          Architecting commercial production SaaS platforms alongside specialized system design & open-source engineering labs.
         </p>
+
+        {/* Category Pill Filter Tabs */}
+        <div className="inline-flex items-center p-1.5 bg-white border border-black/[0.08] rounded-2xl shadow-sm gap-1 max-w-full overflow-x-auto">
+          <button
+            onClick={() => setFilter('all')}
+            className={`px-4 py-2 text-xs font-mono-tag font-bold rounded-xl transition-all whitespace-nowrap cursor-pointer ${
+              filter === 'all'
+                ? 'bg-[#1a1a1a] text-white shadow-sm'
+                : 'text-[#6b7280] hover:text-[#1a1a1a] hover:bg-[#f3f2ef]'
+            }`}
+          >
+            All Projects ({projects.length})
+          </button>
+
+          <button
+            onClick={() => setFilter('production')}
+            className={`px-4 py-2 text-xs font-mono-tag font-bold rounded-xl transition-all flex items-center gap-2 whitespace-nowrap cursor-pointer ${
+              filter === 'production'
+                ? 'bg-[#1a1a1a] text-white shadow-sm'
+                : 'text-[#6b7280] hover:text-[#1a1a1a] hover:bg-[#f3f2ef]'
+            }`}
+          >
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
+            <span>Production SaaS ({productionCount})</span>
+          </button>
+
+          <button
+            onClick={() => setFilter('lab')}
+            className={`px-4 py-2 text-xs font-mono-tag font-bold rounded-xl transition-all flex items-center gap-2 whitespace-nowrap cursor-pointer ${
+              filter === 'lab'
+                ? 'bg-[#1a1a1a] text-white shadow-sm'
+                : 'text-[#6b7280] hover:text-[#1a1a1a] hover:bg-[#f3f2ef]'
+            }`}
+          >
+            <span className="w-2 h-2 rounded-full bg-purple-500 shrink-0" />
+            <span>Engineering Labs ({labCount})</span>
+          </button>
+        </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {projects.map((project) => (
+      <motion.div layout className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {filteredProjects.map((project) => (
           <motion.div
             key={project.id}
+            layout
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 15 }}
             whileHover={{ y: -8 }}
             transition={{ type: 'spring', damping: 20 }}
             onClick={() => setActiveProject(project)}
@@ -140,12 +199,26 @@ export const ProjectsSection: React.FC = () => {
               <div className="absolute inset-0 bg-grid-dots opacity-20 pointer-events-none" />
 
               <div className="flex flex-wrap items-center justify-between gap-2 z-10">
-                <span className="px-3 py-1 bg-white/95 backdrop-blur-md rounded-full text-[10px] font-mono-tag font-bold text-[#1a1a1a] uppercase tracking-wider shadow-sm whitespace-nowrap">
-                  {project.category}
-                </span>
+                <div className="flex items-center gap-2">
+                  <span className="px-3 py-1 bg-white/95 backdrop-blur-md rounded-full text-[10px] font-mono-tag font-bold text-[#1a1a1a] uppercase tracking-wider shadow-sm whitespace-nowrap">
+                    {project.category}
+                  </span>
+                  {project.type === 'production' ? (
+                    <span className="px-2.5 py-1 bg-emerald-500/90 text-white text-[10px] font-mono-tag font-bold rounded-full whitespace-nowrap shrink-0 flex items-center gap-1 border border-white/20 shadow-sm">
+                      <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+                      <span>Commercial SaaS</span>
+                    </span>
+                  ) : (
+                    <span className="px-2.5 py-1 bg-purple-600/90 text-white text-[10px] font-mono-tag font-bold rounded-full whitespace-nowrap shrink-0 flex items-center gap-1 border border-white/20 shadow-sm">
+                      <span className="w-1.5 h-1.5 rounded-full bg-purple-200" />
+                      <span>Open Source Lab</span>
+                    </span>
+                  )}
+                </div>
+
                 {project.demoUrl && (
-                  <span className="px-2.5 py-1 bg-black/30 backdrop-blur-sm text-white text-[10px] font-mono-tag font-bold rounded-full whitespace-nowrap shrink-0 flex items-center gap-1 border border-white/20">
-                    <span>Live Platform</span>
+                  <span className="px-2 py-1 bg-black/30 backdrop-blur-sm text-white text-[10px] font-mono-tag font-bold rounded-full whitespace-nowrap shrink-0 flex items-center gap-1 border border-white/20">
+                    <span>Live</span>
                     <span className="text-xs">↗</span>
                   </span>
                 )}
@@ -185,7 +258,7 @@ export const ProjectsSection: React.FC = () => {
             </div>
           </motion.div>
         ))}
-      </div>
+      </motion.div>
 
       {activeProject && (
         <div
@@ -211,10 +284,19 @@ export const ProjectsSection: React.FC = () => {
             <div className={`min-h-[140px] -mx-6 -mt-6 sm:-mx-8 sm:-mt-8 mb-6 bg-gradient-to-r ${activeProject.gradient} p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden`}>
               <div className="absolute inset-0 bg-grid-dots opacity-20 pointer-events-none" />
 
-              <div className="z-10 mb-4">
+              <div className="z-10 mb-4 flex items-center gap-2">
                 <span className="inline-block px-3 py-1 bg-white/95 backdrop-blur-md text-[#1a1a1a] text-[10px] font-mono-tag font-bold rounded-full uppercase tracking-wider shadow-sm whitespace-nowrap">
                   {activeProject.category}
                 </span>
+                {activeProject.type === 'production' ? (
+                  <span className="inline-block px-2.5 py-1 bg-emerald-500 text-white text-[10px] font-mono-tag font-bold rounded-full uppercase tracking-wider shadow-sm whitespace-nowrap">
+                    Commercial SaaS
+                  </span>
+                ) : (
+                  <span className="inline-block px-2.5 py-1 bg-purple-600 text-white text-[10px] font-mono-tag font-bold rounded-full uppercase tracking-wider shadow-sm whitespace-nowrap">
+                    Engineering Lab
+                  </span>
+                )}
               </div>
 
               <div className="z-10 pr-12">
