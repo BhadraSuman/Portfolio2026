@@ -5,6 +5,12 @@ import { GitHubCalendar } from 'react-github-calendar';
 import { Github, ExternalLink, Activity, GitCommit, Sparkles } from 'lucide-react';
 
 export function GitHubContributions() {
+  const [isMounted, setIsMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   // Theme matching warm light mode (#faf9f7) with vibrant green contribution blocks
   const customTheme = {
     light: [
@@ -69,18 +75,24 @@ export function GitHubContributions() {
 
         {/* Calendar Grid Container (Horizontal scroll on small screens) */}
         <div className="overflow-x-auto pb-2 pt-1 flex justify-center sm:justify-start lg:justify-center relative z-10 scrollbar-thin">
-          <div className="min-w-[750px] flex justify-center">
-            <GitHubCalendar
-              username="BhadraSuman"
-              colorScheme="light"
-              theme={customTheme}
-              blockSize={13}
-              blockMargin={4}
-              fontSize={12}
-              labels={{
-                totalCount: '{{count}} contributions in the last year',
-              }}
-            />
+          <div className="min-w-[750px] min-h-[140px] flex justify-center items-center">
+            {isMounted ? (
+              <GitHubCalendar
+                username="BhadraSuman"
+                colorScheme="light"
+                theme={customTheme}
+                blockSize={13}
+                blockMargin={4}
+                fontSize={12}
+                labels={{
+                  totalCount: '{{count}} contributions in the last year',
+                }}
+              />
+            ) : (
+              <div className="w-full h-32 bg-[#f3f2ef] rounded-2xl animate-pulse flex items-center justify-center text-xs font-mono-tag text-[#6b7280]">
+                Loading GitHub Activity Calendar...
+              </div>
+            )}
           </div>
         </div>
       </div>

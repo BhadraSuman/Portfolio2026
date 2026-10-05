@@ -1,15 +1,41 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 export const GrainOverlay: React.FC = () => {
+  const [patternUrl, setPatternUrl] = useState<string>('');
+
+  useEffect(() => {
+    const canvas = document.createElement('canvas');
+    canvas.width = 200;
+    canvas.height = 200;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    const imgData = ctx.createImageData(200, 200);
+    const data = imgData.data;
+
+    // Soft, fine micro-grain paper noise algorithm
+    for (let i = 0; i < data.length; i += 4) {
+      const v = 200 + Math.floor(Math.random() * 55); // Warm paper tint range
+      data[i] = v;     // R
+      data[i + 1] = v; // G
+      data[i + 2] = v; // B
+      data[i + 3] = Math.floor(Math.random() * 14); // Ultra-soft 5% max alpha
+    }
+
+    ctx.putImageData(imgData, 0, 0);
+    setPatternUrl(canvas.toDataURL());
+  }, []);
+
+  if (!patternUrl) return null;
+
   return (
     <div
-      className="pointer-events-none fixed inset-0 z-[9997] opacity-[0.22] mix-blend-overlay"
+      className="pointer-events-none absolute inset-0 -z-10 w-full h-full opacity-20 mix-blend-multiply"
       style={{
-        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+        backgroundImage: `url(${patternUrl})`,
         backgroundRepeat: 'repeat',
-        backgroundSize: '180px 180px',
       }}
     />
   );

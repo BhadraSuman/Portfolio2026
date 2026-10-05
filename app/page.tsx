@@ -51,7 +51,6 @@ export default function HomePage() {
 
         {/* Hero Tag Pill */}
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-black/[0.08] shadow-sm text-xs font-mono-tag font-bold text-[#1a1a1a] mb-8">
-          <span className="w-2 h-2 rounded-full bg-[#e85a3b] animate-pulse" />
           <span>FULL STACK DEVELOPER & CLOUD ENGINEER</span>
         </div>
 
