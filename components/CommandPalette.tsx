@@ -174,7 +174,8 @@ export const CommandPalette: React.FC = () => {
                   placeholder="Type a command, project name, or navigation target..."
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
-                  className="w-full text-sm bg-transparent outline-none text-[#1a1a1a] placeholder-[#6b7280] font-medium"
+                  className="w-full text-base bg-transparent outline-none text-[#1a1a1a] placeholder-[#6b7280] font-medium"
+                  style={{ fontSize: '16px' }}
                   autoFocus
                 />
                 <button
