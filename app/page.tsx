@@ -3,6 +3,7 @@
 import React, { useEffect } from 'react';
 import gsap from 'gsap';
 import { FloatingDock } from '@/components/FloatingDock';
+import { CommandPalette } from '@/components/CommandPalette';
 import { MarqueeBanner } from '@/components/MarqueeBanner';
 import { ExperienceSection } from '@/components/ExperienceSection';
 import { SkillsSection } from '@/components/SkillsSection';
@@ -34,6 +35,9 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-[#faf9f7] text-[#1a1a1a] relative selection:bg-[#e85a3b]/20 selection:text-[#e85a3b]">
+      {/* Global Command Palette (⌘K or Ctrl+K) */}
+      <CommandPalette />
+
       {/* Floating Bottom Mac-Style Dock Navigation */}
       <FloatingDock />
 
